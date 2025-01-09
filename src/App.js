@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
@@ -7,17 +8,38 @@ import PhotoGrid from "./components/PhotoGrid";
 function App() {
   const [photos, setPhotos] = useState([]);
   const [filteredPhotos, setFilteredPhotos] = useState([]);
+  const [query, setQuery] = useState("");
+
+  const apiKey = "wbxBHGirygu3H1oGp6RRdTf6FZcBbVTidbUq1MscZwRkjtmR9Sc9rjSS";
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/photos?_limit=10")
-      .then((response) => response.json())
-      .then((data) => {
-        setPhotos(data);
-        setFilteredPhotos(data);
-      });
+    const fetchPhotos = async () => {
+      try {
+        const response = await axios.get("https://api.pexels.com/v1/curated", {
+          headers: {
+            Authorization: apiKey,
+          },
+          params: {
+            per_page: 12,
+          },
+        });
+        const photosData = response.data.photos.map((photo) => ({
+          id: photo.id,
+          url: photo.src.medium,
+          title: photo.alt,
+        }));
+        setPhotos(photosData);
+        setFilteredPhotos(photosData);
+      } catch (error) {
+        console.error("Erro ao buscar fotos: ", error);
+      }
+    };
+
+    fetchPhotos();
   }, []);
 
   const handleSearch = (query) => {
+    setQuery(query);
     if (!query) {
       setFilteredPhotos(photos);
     } else {
