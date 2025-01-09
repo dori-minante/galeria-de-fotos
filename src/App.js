@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -13,6 +13,7 @@ function App() {
   const apiKey = "wbxBHGirygu3H1oGp6RRdTf6FZcBbVTidbUq1MscZwRkjtmR9Sc9rjSS";
 
   useEffect(() => {
+
     const fetchPhotos = async () => {
       try {
         const response = await axios.get("https://api.pexels.com/v1/curated", {
@@ -23,11 +24,13 @@ function App() {
             per_page: 12,
           },
         });
+
         const photosData = response.data.photos.map((photo) => ({
           id: photo.id,
           url: photo.src.medium,
-          title: photo.alt,
+          title: photo.alt_description || "Imagem sem nome",
         }));
+
         setPhotos(photosData);
         setFilteredPhotos(photosData);
       } catch (error) {
@@ -36,13 +39,14 @@ function App() {
     };
 
     fetchPhotos();
-  }, []);
+  }, []); 
 
   const handleSearch = (query) => {
     setQuery(query);
     if (!query) {
       setFilteredPhotos(photos);
     } else {
+      
       const filtered = photos.filter((photo) =>
         photo.title.toLowerCase().includes(query.toLowerCase())
       );
@@ -53,9 +57,9 @@ function App() {
   return (
     <div className="container mx-auto p-4">
       <Header />
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch}/> 
       {filteredPhotos.length > 0 ? (
-        <PhotoGrid photos={filteredPhotos} />
+        <PhotoGrid photos={filteredPhotos}/> 
       ) : (
         <p className="text-center mt-4">Nenhuma foto encontrada</p>
       )}
@@ -65,3 +69,4 @@ function App() {
 }
 
 export default App;
+

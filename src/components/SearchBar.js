@@ -1,11 +1,11 @@
-import { useState } from 'react'; // Importando o hook useState do React
+import { useState } from 'react';
 
 function SearchBar({ onSearch }) {
-  const [query, setQuery] = useState(""); // Estado para armazenar o valor da pesquisa
+  const [query, setQuery] = useState("");
 
   const handleSearch = (e) => {
-    setQuery(e.target.value); // Atualizando o valor da pesquisa
-    onSearch(e.target.value); // Passando o valor da pesquisa para o componente pai
+    setQuery(e.target.value);
+    onSearch(e.target.value);
   };
 
   return (
@@ -13,9 +13,9 @@ function SearchBar({ onSearch }) {
       <input
         type="text"
         value={query}
-        onChange={handleSearch} // Atualiza a pesquisa conforme o usuário digita
+        onChange={handleSearch}
         placeholder="Pesquisar fotos..."
-        className="p-2 border border-gray-300 rounded w-full mx-auto" // Estilizando a barra de pesquisa
+        className="p-2 border border-gray-300 rounded w-full mx-auto"
       />
     </div>
   );
