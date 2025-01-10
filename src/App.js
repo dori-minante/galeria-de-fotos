@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"; // Importando React e hooks necessários
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -6,55 +6,53 @@ import SearchBar from "./components/SearchBar";
 import PhotoGrid from "./components/PhotoGrid";
 
 function App() {
-  const [photos, setPhotos] = useState([]); // Estado para armazenar todas as fotos
-  const [filteredPhotos, setFilteredPhotos] = useState([]); // Estado para armazenar as fotos filtradas
-  const [query, setQuery] = useState(""); // Estado para armazenar a pesquisa
+  const [photos, setPhotos] = useState([]);
+  const [filteredPhotos, setFilteredPhotos] = useState([]);
+  const [query, setQuery] = useState("");
 
-  const apiKey = "wbxBHGirygu3H1oGp6RRdTf6FZcBbVTidbUq1MscZwRkjtmR9Sc9rjSS"; // Substitua pela sua chave da API do Pexels
+  const apiKey = "wbxBHGirygu3H1oGp6RRdTf6FZcBbVTidbUq1MscZwRkjtmR9Sc9rjSS";
 
-  // O useEffect será executado ao carregar a página
   useEffect(() => {
-    // Função assíncrona para buscar as fotos
+
     const fetchPhotos = async () => {
       try {
         const response = await axios.get("https://api.pexels.com/v1/curated", {
           headers: {
-            Authorization: apiKey, // Usando a chave de API para autenticação
+            Authorization: apiKey,
           },
           params: {
-            per_page: 12, // Número de fotos a serem carregadas
+            per_page: 12,
           },
         });
-        
-        // Processando os dados recebidos da API
+
         const photosData = response.data.photos.map((photo) => ({
           id: photo.id,
-          url: photo.src.medium, // URL da imagem em tamanho médio
-          title: photo.alt_description || `Foto ${photo.id}`, // Exibe o nome da imagem ou um nome gerado com base no ID
+          url: photo.src.medium,
+          title: photo.alt_description || `Foto ${photo.id}`,
         }));
 
-        // Atualizando o estado com as fotos processadas
+
         setPhotos(photosData);
-        setFilteredPhotos(photosData); // Exibe todas as fotos por padrão
+        setFilteredPhotos(photosData);
       } catch (error) {
-        console.error("Erro ao buscar fotos: ", error); // Exibe erro caso algo dê errado na requisição
+        console.error("Erro ao buscar fotos: ", error);
       }
     };
 
-    fetchPhotos(); // Chama a função para buscar as fotos
-  }, []); // O array vazio [] garante que a requisição aconteça apenas uma vez, no carregamento inicial
+    fetchPhotos();
+  }, []);
 
-  // Função para lidar com a pesquisa
+
   const handleSearch = (query) => {
-    setQuery(query); // Atualiza o estado da pesquisa com o valor digitado
+    setQuery(query);
     if (!query) {
-      setFilteredPhotos(photos); // Se não houver pesquisa, exibe todas as fotos
+      setFilteredPhotos(photos);
     } else {
-      // Filtra as fotos com base no nome da foto (título)
+
       const filtered = photos.filter((photo) =>
-        photo.title.toLowerCase().includes(query.toLowerCase()) // Pesquisa insensível a maiúsculas/minúsculas
+        photo.title.toLowerCase().includes(query.toLowerCase())
       );
-      setFilteredPhotos(filtered); // Atualiza as fotos filtradas
+      setFilteredPhotos(filtered);
     }
   };
 
@@ -65,7 +63,7 @@ function App() {
       {filteredPhotos.length > 0 ? (
         <PhotoGrid photos={filteredPhotos} />
       ) : (
-        <p className="text-center mt-4">Nenhuma foto encontrada</p> // Mensagem caso não haja fotos
+        <p className="text-center mt-4">Nenhuma foto encontrada</p>
       )}
       <Footer />
     </div>

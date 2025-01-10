@@ -10,7 +10,7 @@ function PhotoGrid({ photos }) {
                 className="w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
               />
               <p className="text-center mt-2 text-lg font-semibold text-gray-700">
-                {photo.title} {/* Exibe o nome da imagem */}
+                {photo.title}
               </p>
             </div>
           );
