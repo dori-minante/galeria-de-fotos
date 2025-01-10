@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+<h1 align="center">🖼️ <strong>Galeria de Fotos</strong></h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  Uma aplicação simples para exibir uma galeria de fotos e permitir a pesquisa por nomes.
+</p>
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+<h2>📋 <strong>Descrição</strong></h2>
 
-### `npm start`
+<p>Bem-vindo à <strong>Galeria de Fotos</strong>!  
+Esta aplicação permite visualizar, filtrar e pesquisar imagens com base em palavras-chave, exibindo o nome das fotos abaixo de cada uma delas.</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h2>🛠️ <strong>Tecnologias Utilizadas</strong></h2>
 
-### `npm test`
+<ul>
+  <li><strong>React</strong>: Biblioteca JavaScript para construção da interface.</li>
+  <li><strong>Tailwind CSS</strong>: Framework CSS para criação de layouts responsivos e estilização rápida.</li>
+  <li><strong>Axios</strong>: Biblioteca para fazer requisições HTTP à API de imagens.</li>
+  <li><strong>API Pexels</strong>: API pública de imagens para carregar fotos.</li>
+</ul>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+<h2>🚀 <strong>Como Executar Localmente</strong></h2>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h3>Clone o repositório:</h3>
+<pre><code>git clone https://github.com/dori-minante/galeria-de-fotos.git</code></pre>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<h3>Pré-requisitos</h3>
+<ul>
+  <li><strong>Node.js</strong>: Certifique-se de ter o <a href="https://nodejs.org/">Node.js</a> instalado.</li>
+  <li><strong>NPM</strong>: O NPM é instalado automaticamente junto com o Node.js.</li>
+  <li><strong>Git</strong>: Para clonar o repositório.</li>
+</ul>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h3>Passos para execução</h3>
+<ol>
+  <li>Abra o terminal e navegue até o diretório onde deseja clonar o projeto.</li>
+  <li>Clone o repositório com o comando acima.</li>
+  <li>Navegue até o diretório do projeto:
+    <pre><code>cd galeria-de-fotos</code></pre>
+  </li>
+  <li>Instale as dependências do projeto:
+    <pre><code>npm install</code></pre>
+  </li>
+  <li>Após a instalação das dependências, inicie a aplicação:
+    <pre><code>npm start</code></pre>
+  </li>
+  <li>A aplicação será aberta no seu navegador em <strong>http://localhost:3000</strong>.</li>
+</ol>
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<h2>✨ <strong>Funcionalidades</strong></h2>
+<ul>
+  <li>🖼️ <strong>Visualização de Fotos:</strong> Exibe uma galeria de imagens com nome exibido abaixo de cada foto.</li>
+  <li>🔍 <strong>Pesquisa por Nome:</strong> Filtra as fotos de acordo com o nome da imagem digitado na barra de pesquisa.</li>
+  <li>📱 <strong>Responsividade:</strong> Layout adaptável para diferentes tamanhos de tela (desktop, tablet, celular).</li>
+</ul>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<h2>🤝 <strong>Como Contribuir</strong></h2>
+<ol>
+  <li>Faça um fork deste repositório.</li>
+  <li>Crie uma nova branch para a sua feature:
+    <pre><code>git checkout -b minha-feature</code></pre>
+  </li>
+  <li>Faça as alterações desejadas no código.</li>
+  <li>Adicione suas mudanças:
+    <pre><code>git add .</code></pre>
+  </li>
+  <li>Faça um commit com uma mensagem explicativa:
+    <pre><code>git commit -m "Minha nova feature"</code></pre>
+  </li>
+  <li>Envie suas alterações para o repositório remoto:
+    <pre><code>git push origin minha-feature</code></pre>
+  </li>
+  <li>Abra um Pull Request explicando suas mudanças.</li>
+</ol>
+<p>💡 Sinta-se à vontade para sugerir melhorias ou relatar problemas!</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
